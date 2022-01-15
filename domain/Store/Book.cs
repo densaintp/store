@@ -5,7 +5,6 @@ namespace Store
     public class Book
     {
         public int Id { get; }
-        public string title;
         public string Title { get; } //Свойство только на чтение. Посмотреть, как делал свойства ITDVN
 
         public Book(int id,string title)

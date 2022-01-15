@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Store
 {
-	interface IBookRepository
+	interface IBookRepository //Зачем нужны?
 	{
+		Book[] GetAllByTitle(string titlePart); // Метод возвращающий названия книг
+
 	}
 }
