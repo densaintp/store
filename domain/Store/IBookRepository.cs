@@ -12,6 +12,6 @@ namespace Store
 
 
 		Book[] GetAllByTitleOrAuthor(string titleOrAuthor); // Метод возвращающий названия книг
-
+		Book GetById(int id);
 	}
 }
