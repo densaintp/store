@@ -31,6 +31,7 @@ namespace Store.Web
 			});
 
 			services.AddSingleton<IBookRepository, BookRepository>(); //SingleTone!!!
+			services.AddSingleton<IOrderRepository, OrderRepository>();
 			services.AddSingleton<BookService>();
 		}
 
