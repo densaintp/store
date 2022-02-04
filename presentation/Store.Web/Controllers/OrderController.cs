@@ -1,21 +1,35 @@
 ﻿using Store.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using System.Linq;
 
 namespace Store.Web.Controllers
 {
-	public class CartController : Controller
+	public class OrderController : Controller
 	{
 		private readonly IBookRepository bookRepository;
 		private readonly IOrderRepository orderRepository;
 
-		public CartController(IBookRepository bookRepository,
+		public OrderController(IBookRepository bookRepository,
 							  IOrderRepository orderRepository)
 		{
 			this.bookRepository = bookRepository;
 			this.orderRepository = orderRepository;
 		}
-		public IActionResult Add(int id)
+
+		public IActionResult Index()
+		{
+			if (HttpContext.Session.TryGetCart(out Cart cart))
+			{
+				var order = orderRepository.GetById(cart.OrderId);
+				OrderModel model = Map(order);
+
+				return View(model);
+			}
+
+			return View("Empty");
+		}
+		public IActionResult AddItem(int id)
 		{
 
 			Order order;
