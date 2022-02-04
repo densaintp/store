@@ -9,9 +9,8 @@ namespace Store
 	public interface IBookRepository //Зачем нужны?
 	{
 		Book[] GetAllByIsbn(string isbn);
-
-
 		Book[] GetAllByTitleOrAuthor(string titleOrAuthor); // Метод возвращающий названия книг
 		Book GetById(int id);
+		Book[] GetAllByIds(IEnumerable<int> bookIds);
 	}
 }
